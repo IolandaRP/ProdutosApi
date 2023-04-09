@@ -10,8 +10,7 @@ namespace ProdutosApi.Controllers
         [Route("api/produtos")]
         public class ProdutosController : ControllerBase
         {
-        private readonly IProdutoService _produtoService;
- 
+            private readonly IProdutoService _produtoService;
             public ProdutosController(IProdutoService produtoService)
             {
                 _produtoService = produtoService;
@@ -27,7 +26,7 @@ namespace ProdutosApi.Controllers
                 return Ok(produtos);
             }
 
-        //api/produtos/1
+        //api/produtos/id
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -55,7 +54,7 @@ namespace ProdutosApi.Controllers
             return CreatedAtAction(nameof(GetById), new { id = id }, inputModel);
         }
 
-        //api/produtos/1
+        //api/produtos/id
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -72,7 +71,7 @@ namespace ProdutosApi.Controllers
 
         }
 
-        //api/produtos/1
+        //api/produtos/id
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] UpdateProdutoInputModel inputModel)
         {

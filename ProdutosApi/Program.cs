@@ -1,4 +1,5 @@
 using Produtos.Application.Services;
+using Produtos.Infrasctructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddScoped<IProdutoService, ProdutoService>();
+builder.Services.AddScoped<IProdutoService, ProdutoService>();
+builder.Services.AddScoped<ProdutoDbContext>();
 
 var app = builder.Build();
 
